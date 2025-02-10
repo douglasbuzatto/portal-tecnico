@@ -6,85 +6,78 @@
     <title>Portal Técnico - Recursos GPON</title>
     <style>
         :root {
-            --primary-color: #0f172a;      /* Azul escuro mais profissional */
-            --hover-color: #1e40af;        /* Azul mais escuro para hover */
-            --background-color: #f1f5f9;   /* Cinza claro para fundo */
-            --card-background: #ffffff;
-            --text-color: #1e293b;
-            --accent-color: #3b82f6;       /* Azul para destaques */
-            --status-green: #059669;       /* Verde para status online/ativo */
+            --bg-color: #F7F7F8;
+            --primary-color: #5E6AD2;
+            --hover-color: #4A4FCF;
+            --text-color: #2D3748;
+            --card-bg: #FFFFFF;
+            --border-color: #E2E8F0;
+            --tag-bg: #EDF2F7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            text-align: center;
-            background-color: var(--background-color);
-            margin: 0;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            background-image: linear-gradient(45deg, #f1f5f9 25%, #e2e8f0 25%, #e2e8f0 50%, #f1f5f9 50%, #f1f5f9 75%, #e2e8f0 75%, #e2e8f0 100%);
-            background-size: 20px 20px;
+            padding: 40px 20px;
         }
 
         .container {
-            max-width: 700px;
-            margin: 20px auto;
-            background: var(--card-background);
-            padding: 30px;
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--card-bg);
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 40px;
         }
 
-        .profile {
-            margin-bottom: 30px;
-            position: relative;
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .profile img {
-            width: 120px;
-            height: 120px;
-            border-radius: 16px;
-            border: 3px solid var(--accent-color);
-            padding: 3px;
-            margin-bottom: 15px;
-            transition: transform 0.3s ease;
-            background: #f8fafc;
+        .header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 16px;
         }
 
         .status-badge {
-            position: absolute;
-            top: 85px;
-            left: 50%;
-            transform: translateX(20px);
-            background: var(--status-green);
+            display: inline-block;
+            background: var(--primary-color);
             color: white;
             padding: 4px 12px;
             border-radius: 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .profile h1 {
-            font-size: 1.8rem;
-            margin: 10px 0;
-            color: var(--primary-color);
-        }
-
-        .profile p {
-            color: #64748b;
-            margin: 0;
-            font-size: 1.1rem;
+            font-size: 14px;
+            margin-top: 8px;
         }
 
         .section-title {
-            text-align: left;
-            margin: 20px 0 10px;
-            color: var(--primary-color);
-            font-size: 0.9rem;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
+            color: #666;
+            margin: 32px 0 16px;
         }
 
         .links {
@@ -96,89 +89,107 @@
         .link {
             display: flex;
             align-items: center;
-            padding: 16px 20px;
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
+            padding: 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 1.1rem;
-            text-align: left;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
 
         .link:hover {
-            background: var(--hover-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(94, 106, 210, 0.1);
         }
 
-        .link span {
-            margin-left: 12px;
+        .link-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            color: var(--primary-color);
+        }
+
+        .link-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .link-title {
+            font-weight: 500;
         }
 
         .tag {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 2px 8px;
+            background: var(--tag-bg);
+            padding: 4px 8px;
             border-radius: 4px;
-            font-size: 0.8rem;
-            margin-left: auto;
+            font-size: 12px;
+            color: var(--text-color);
         }
 
         @media (max-width: 640px) {
             .container {
-                padding: 20px;
-                margin: 10px;
+                padding: 24px;
             }
 
-            .profile h1 {
-                font-size: 1.5rem;
-            }
-
-            .link {
-                padding: 14px 16px;
-                font-size: 1rem;
+            .header h1 {
+                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="profile">
-            <img src="/api/placeholder/120/120" alt="Logo Portal Técnico">
-            <div class="status-badge">Portal Ativo</div>
+        <header class="header">
+            <img src="/api/placeholder/80/80" alt="Logo Portal Técnico">
             <h1>Portal Técnico</h1>
             <p>Recursos e Documentação GPON</p>
-        </div>
-        
+            <div class="status-badge">Portal Ativo</div>
+        </header>
+
         <div class="section-title">Configurações de Rede</div>
         <div class="links">
             <a href="https://docs.google.com/spreadsheets/d/1lWjD13cjpti4vQwCiQgwrnwyuzzxhQV1H0v62yyXKGU/edit?gid=1621407621#gid=1621407621" 
                class="link" 
                target="_blank"
                rel="noopener">
-                🌐 <span>VLAN's e AP's SSID</span>
-                <div class="tag">Config</div>
+                <div class="link-icon">🌐</div>
+                <div class="link-content">
+                    <span class="link-title">VLAN's e AP's SSID</span>
+                    <span class="tag">Config</span>
+                </div>
             </a>
             <a href="https://drive.google.com/drive/folders/1nyn2RpP0xrPlSaoss3LfgBwBtVKimQHj?usp=sharing" 
                class="link"
                target="_blank"
                rel="noopener">
-                📡 <span>Firmware ONU's</span>
-                <div class="tag">Downloads</div>
+                <div class="link-icon">📡</div>
+                <div class="link-content">
+                    <span class="link-title">Firmware ONU's</span>
+                    <span class="tag">Downloads</span>
+                </div>
             </a>
         </div>
 
         <div class="section-title">Documentação Técnica</div>
         <div class="links">
             <a href="#" class="link">
-                📚 <span>Manual de Procedimentos</span>
-                <div class="tag">Guia</div>
+                <div class="link-icon">📚</div>
+                <div class="link-content">
+                    <span class="link-title">Manual de Procedimentos</span>
+                    <span class="tag">Guia</span>
+                </div>
             </a>
             <a href="#" class="link">
-                🔧 <span>Troubleshooting</span>
-                <div class="tag">Suporte</div>
+                <div class="link-icon">🔧</div>
+                <div class="link-content">
+                    <span class="link-title">Troubleshooting</span>
+                    <span class="tag">Suporte</span>
+                </div>
             </a>
         </div>
     </div>
