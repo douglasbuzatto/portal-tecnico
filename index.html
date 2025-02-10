@@ -3,117 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Técnico - Recursos GPON</title>
+    <title>Portal Técnico - GPON</title>
     <style>
         :root {
-            --bg-color: #F7F7F8;
-            --primary-color: #5E6AD2;
-            --hover-color: #4A4FCF;
-            --text-color: #2D3748;
-            --card-bg: #FFFFFF;
-            --border-color: #E2E8F0;
-            --tag-bg: #EDF2F7;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary-color: #0f172a;
+            --hover-color: #1e40af;
+            --background-color: #f1f5f9;
+            --card-background: #ffffff;
+            --text-color: #1e293b;
+            --accent-color: #3b82f6;
+            --success-color: #059669;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            text-align: center;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
             color: var(--text-color);
             line-height: 1.6;
-            padding: 40px 20px;
+            background-image: linear-gradient(45deg, #f1f5f9 25%, #e2e8f0 25%, #e2e8f0 50%, #f1f5f9 50%, #f1f5f9 75%, #e2e8f0 75%, #e2e8f0 100%);
+            background-size: 20px 20px;
         }
 
         .container {
-            max-width: 680px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 20px auto;
+            background: var(--card-background);
             padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        .header {
-            text-align: center;
+        .profile {
+            position: relative;
+            padding: 20px;
             margin-bottom: 40px;
+            background: linear-gradient(to right, #f8fafc, #f1f5f9);
+            border-radius: 12px;
         }
 
-        .header img {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            margin-bottom: 16px;
-        }
-
-        .header h1 {
-            font-size: 28px;
-            font-weight: 600;
-            color: var(--text-color);
-            margin-bottom: 8px;
-        }
-
-        .header p {
-            color: #666;
-            font-size: 16px;
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 16px;
+            border: 3px solid var(--accent-color);
+            padding: 3px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+            background: white;
         }
 
         .status-badge {
-            display: inline-block;
-            background: var(--primary-color);
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(40px);
+            background: var(--success-color);
             color: white;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 14px;
-            margin-top: 8px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
+        }
+
+        .profile h1 {
+            font-size: 2rem;
+            margin: 10px 0;
+            color: var(--primary-color);
+        }
+
+        .profile p {
+            color: #64748b;
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            margin: 30px 0;
+            text-align: left;
         }
 
         .section-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #666;
-            margin: 32px 0 16px;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 20px 0 15px;
+            padding-left: 10px;
+            border-left: 4px solid var(--accent-color);
         }
 
         .links {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
         }
 
         .link {
             display: flex;
             align-items: center;
-            padding: 16px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            padding: 20px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
             color: var(--text-color);
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .link:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(94, 106, 210, 0.1);
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border-color: var(--accent-color);
         }
 
         .link-icon {
-            flex-shrink: 0;
-            width: 24px;
-            height: 24px;
-            margin-right: 12px;
-            color: var(--primary-color);
+            font-size: 24px;
+            margin-right: 15px;
+            color: var(--accent-color);
+            width: 32px;
+            text-align: center;
         }
 
         .link-content {
-            flex-grow: 1;
+            flex: 1;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -121,76 +137,91 @@
 
         .link-title {
             font-weight: 500;
+            font-size: 1.1rem;
         }
 
         .tag {
-            background: var(--tag-bg);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            color: var(--text-color);
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
 
         @media (max-width: 640px) {
             .container {
-                padding: 24px;
+                padding: 20px;
+                margin: 10px;
             }
 
-            .header h1 {
-                font-size: 24px;
+            .profile h1 {
+                font-size: 1.5rem;
+            }
+
+            .link {
+                padding: 15px;
+            }
+
+            .status-badge {
+                transform: translateX(20px);
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <img src="/api/placeholder/80/80" alt="Logo Portal Técnico">
+        <div class="profile">
+            <img src="/api/placeholder/120/120" alt="Logo Portal Técnico">
+            <div class="status-badge">Portal Ativo</div>
             <h1>Portal Técnico</h1>
             <p>Recursos e Documentação GPON</p>
-            <div class="status-badge">Portal Ativo</div>
-        </header>
-
-        <div class="section-title">Configurações de Rede</div>
-        <div class="links">
-            <a href="https://docs.google.com/spreadsheets/d/1lWjD13cjpti4vQwCiQgwrnwyuzzxhQV1H0v62yyXKGU/edit?gid=1621407621#gid=1621407621" 
-               class="link" 
-               target="_blank"
-               rel="noopener">
-                <div class="link-icon">🌐</div>
-                <div class="link-content">
-                    <span class="link-title">VLAN's e AP's SSID</span>
-                    <span class="tag">Config</span>
-                </div>
-            </a>
-            <a href="https://drive.google.com/drive/folders/1nyn2RpP0xrPlSaoss3LfgBwBtVKimQHj?usp=sharing" 
-               class="link"
-               target="_blank"
-               rel="noopener">
-                <div class="link-icon">📡</div>
-                <div class="link-content">
-                    <span class="link-title">Firmware ONU's</span>
-                    <span class="tag">Downloads</span>
-                </div>
-            </a>
         </div>
 
-        <div class="section-title">Documentação Técnica</div>
-        <div class="links">
-            <a href="#" class="link">
-                <div class="link-icon">📚</div>
-                <div class="link-content">
-                    <span class="link-title">Manual de Procedimentos</span>
-                    <span class="tag">Guia</span>
-                </div>
-            </a>
-            <a href="#" class="link">
-                <div class="link-icon">🔧</div>
-                <div class="link-content">
-                    <span class="link-title">Troubleshooting</span>
-                    <span class="tag">Suporte</span>
-                </div>
-            </a>
+        <div class="section">
+            <div class="section-title">Configurações de Rede</div>
+            <div class="links">
+                <a href="https://docs.google.com/spreadsheets/d/1lWjD13cjpti4vQwCiQgwrnwyuzzxhQV1H0v62yyXKGU/edit?gid=1621407621#gid=1621407621" 
+                   class="link" 
+                   target="_blank"
+                   rel="noopener">
+                    <div class="link-icon">🌐</div>
+                    <div class="link-content">
+                        <span class="link-title">VLAN's e AP's SSID</span>
+                        <span class="tag">Config</span>
+                    </div>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1nyn2RpP0xrPlSaoss3LfgBwBtVKimQHj?usp=sharing" 
+                   class="link"
+                   target="_blank"
+                   rel="noopener">
+                    <div class="link-icon">📡</div>
+                    <div class="link-content">
+                        <span class="link-title">Firmware ONU's</span>
+                        <span class="tag">Downloads</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Documentação Técnica</div>
+            <div class="links">
+                <a href="#" class="link">
+                    <div class="link-icon">📚</div>
+                    <div class="link-content">
+                        <span class="link-title">Manual de Procedimentos</span>
+                        <span class="tag">Guia</span>
+                    </div>
+                </a>
+                <a href="#" class="link">
+                    <div class="link-icon">🔧</div>
+                    <div class="link-content">
+                        <span class="link-title">Troubleshooting</span>
+                        <span class="tag">Suporte</span>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </body>
